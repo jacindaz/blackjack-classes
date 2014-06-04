@@ -16,7 +16,8 @@ def play
   #puts "Score: #{score.calc_score}"
   #binding.pry
 
-  puts "Values are: 1 - #{score.value}, 2 - #{score.value}"
+  puts "Values: #{score.assign_value}"
+  puts "Score: #{score.calc_score}"
 
 end
 
