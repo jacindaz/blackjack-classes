@@ -11,52 +11,29 @@ class Deck
   #attr_reader
 
   def initialize
-
-  end
-
-  def build_deck
     @new_deck = []
-    #binding.pry
     SUITS.each do |suit|
       RANKS.each do |rank|
-        #binding.pry
         @new_deck << Card.new(rank, suit)
-        #binding.pry
       end
     end
-    puts "#{@new_deck}"
-    puts "Deck length: #{@new_deck.length}"
+    #puts "#{@new_deck}"
+    #puts "Deck length: #{@new_deck.length}"
+    @new_deck.shuffle!
   end
 
-  def two_cards(player_or_dealer)
-    2.times do
-      if player_or_dealer == "player"
-        puts "Player was dealt #{deal_card}"
-      elsif player_or_dealer == "dealer"
-        puts "Dealer was dealt #{deal_card}"
-      end
-    end
+  def new_deck
+    @new_deck
   end
 
-  def random_number(card_or_suit)
-    index = (card_or_suit.length) - 1
-    return (rand() * index).round
-  end
-
-  def random_card
-    cards_array[random_number(cards_array)]
-  end
-
-  def random_suit
-    suits_array[random_number(suits_array)]
-  end
 
   def deal_card
-    one_card = "#{random_card}#{random_suit}"
-    return one_card
+    @new_deck.pop
   end
+
 
 end
 
-test = Deck.new
-puts test.build_deck
+#test = Deck.new
+#puts "#{test.deal_card}"
+#puts "#{test.new_deck}"
