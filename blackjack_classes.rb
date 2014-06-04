@@ -17,6 +17,10 @@ class Card
     ["J", "Q", "K"].include?(@card_rank)
   end
 
+  def is_ace?
+    "A".include?(@card_rank)
+  end
+
 end
 
 
@@ -45,10 +49,10 @@ class Hand
       if (1..10).include?(card_object.card_rank) == true
         @value = card_object.card_rank
         puts "#{@value}"
-      elsif card_object.face_card? == true
+      elsif card_object.face_card?
         @value =  10
         puts "#{@value}, face card rank: #{card_object.card_rank}"
-      elsif card_object.card_rank == "A"
+      elsif card_object.is_ace?
         puts "This is an ace, deal with later"
       end
     end
