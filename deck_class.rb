@@ -2,20 +2,21 @@ require_relative "hand_class"
 require_relative "card_class"
 require 'pry'
 
-RANKS = [2,3,4,5,6,7,8,9,10, "J", "Q", "K", "A"]
-SUITS = ["♦", "♣", "♠", "♥"]
+
 
 #Deck to represent a collection of 52 cards. When dealing a hand this class
 #can be used to supply the Card objects.
 class Deck
 
-  #attr_reader
-
   def initialize
+    @ranks = [2,3,4,5,6,7,8,9,10, "J", "Q", "K", "A"]
+    @suits = ["♦", "♣", "♠", "♥"]
     @new_deck = []
-    SUITS.each do |suit|
-      RANKS.each do |rank|
+
+    @suits.each do |suit|
+      @ranks.each do |rank|
         @new_deck << Card.new(rank, suit)
+        #puts "#{@new_deck}"
       end
     end
     #puts "#{@new_deck}"
@@ -38,3 +39,6 @@ end
 #test = Deck.new
 #puts "#{test.deal_card}"
 #puts "#{test.new_deck}"
+
+#sample_deck = Deck.new
+#puts sample_deck

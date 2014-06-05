@@ -1,5 +1,7 @@
 require_relative "deck_class"
 require_relative "card_class"
+require 'pry'
+
 
 #Hand to represent the player's and dealer's hand. This class will need to determine the best score
 #based on the cards that have been dealt.
@@ -34,8 +36,8 @@ class Hand
 
   def calc_score
     sum = 0
-    @values.each do |value|
-      if !value.class.is_a?(Array)
+    assign_value.each do |value|
+      if !value.is_a?(Array)
         sum += value.to_i
       else
         if (sum + 11 > 21)
@@ -48,7 +50,22 @@ class Hand
     return sum
   end #end calc_score method
 
+
+  def dealer_stand_or_hit
+
+  end
+
+
   def best_score
   end
 
 end
+
+
+
+# test = Hand.new(card_array)
+# puts test.calc_score
+
+
+
+
