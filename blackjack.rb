@@ -1,11 +1,12 @@
 require 'pry'
 
-require_relative "blackjack_classes"
+require_relative "hand_class"
 require_relative "deck_class"
+require_relative "card_class"
 
 def play
 
-  puts "Welcome to Blackjack!"
+  puts "Welcome to Blackjack!", nil
 
   player_card1 = Deck.new.deal_card
   player_card2 = Deck.new.deal_card
@@ -13,11 +14,19 @@ def play
   puts "Player was dealt #{player_card2.card_rank}#{player_card2.card_suit}"
 
   score = Hand.new([player_card1, player_card2])
-  #puts "Score: #{score.calc_score}"
-  #binding.pry
-
   puts "Values: #{score.assign_value}"
-  puts "Score: #{score.calc_score}"
+  puts "Player score: #{score.calc_score}"
+
+  puts "Hit or stand (H/S): "
+  user_input = gets.chomp.downcase
+
+  if user_input == "s"
+    puts "Player score: #{score.calc_score}"
+  elsif user_input == "h"
+
+  end
+
+
 
 end
 

@@ -1,4 +1,5 @@
-require_relative "blackjack_classes"
+require_relative "hand_class"
+require_relative "card_class"
 require 'pry'
 
 RANKS = [2,3,4,5,6,7,8,9,10, "J", "Q", "K", "A"]
